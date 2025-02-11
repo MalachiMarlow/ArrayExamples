@@ -34,6 +34,9 @@ Module arrayExamples
 
     Sub multiDimentionalArrays()
         Dim students(14, 2) As Single
+        Dim classes() As String = {"Math", "History", "Science"}
+        Dim coolStuff(,) As Integer = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+        Dim ThreeDArray(,,) As Integer = {{{1}, {2}, {3}}, {{4}, {5}, {6}}, {{7}, {8}, {9}}}
 
 
         students(5, 2) = 52
