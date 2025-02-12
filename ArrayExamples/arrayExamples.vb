@@ -52,7 +52,7 @@ Module arrayExamples
         Dim beanCounter(20) As Integer
 
         For i = 1 To 10000
-            beanCounter(randomNumberBetween(10, 3)) += 1
+            beanCounter(randomNumberBetween(20, 0)) += 1
 
         Next
 
@@ -68,9 +68,14 @@ Module arrayExamples
 
         Randomize()
         temp = Rnd()
-        temp *= max - min
-        temp += min
-        Return CInt(temp)
+        'establish range
+        temp *= max - min + 1 'makes range bigger by 1 to fix inclusivity max/min
+        temp += min - 1 'shifts range down so math.ceiling works
+        'Return CInt(temp) 'bad randomness
+        'Return CInt(Int(temp)) 'randomness ok but max is not included
+        Return CInt(Math.Floor(temp)) 'randomness ok but max is not included
+        'Return CInt(Math.Ceiling(temp)) 'randomness ok but min is not included
+
     End Function
 
 End Module
